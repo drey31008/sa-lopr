@@ -1,0 +1,50 @@
+sa-lopr
+algoritmo "Analise_de_Mercado"
+var
+    nomeProduto: caractere
+    publicoAlvo: caractere
+    tamanhoMercado, precoConcorrente, numConcorrentes: inteiro
+    totalPreco, precoMedio, precoProprio, diferencaPreco: real
+inicio
+    escreval("=== Análise de Mercado ===")
+    escreval("Informe o nome do produto:")
+    leia(nomeProduto)
+    escreval("Descreva o público-alvo do produto:")
+    leia(publicoAlvo)
+    escreval("Informe o tamanho do mercado potencial (número de pessoas):")
+    leia(tamanhoMercado)
+    escreval("Informe o número de concorrentes no mercado:")
+    leia(numConcorrentes)
+    totalPreco <- 0
+    para i de 1 ate numConcorrentes faca
+        escreval("Digite o preço do produto do concorrente ", i, " (em R$):")
+        leia(precoConcorrente)
+        totalPreco <- totalPreco + precoConcorrente
+    fimpara
+    se numConcorrentes > 0 entao
+        precoMedio <- totalPreco / numConcorrentes
+    senao
+        precoMedio <- 0
+    fimse
+    escreval("Informe o preço que deseja estabelecer para seu produto (em R$):")
+    leia(precoProprio)
+    diferencaPreco <- precoProprio - precoMedio
+    escreval("=== Resultados da Análise de Mercado ===")
+    escreval("Produto analisado: ", nomeProduto)
+    escreval("Público-alvo: ", publicoAlvo)
+    escreval("Tamanho do mercado potencial: ", tamanhoMercado, " pessoas")
+    escreval("Número de concorrentes: ", numConcorrentes)
+    escreval("Preço médio dos concorrentes: R$", precoMedio:0:2)
+    escreval("Seu preço proposto: R$", precoProprio:0:2)
+    se diferencaPreco > 0 entao
+        escreval("Seu preço está acima da média do mercado em R$", diferencaPreco:0:2)
+        escreval("Estratégia sugerida: Posicionar como produto premium.")
+    senao
+        diferencaPreco <- diferencaPreco * -1
+        escreval("Seu preço está abaixo da média do mercado em R$", diferencaPreco:0:2)
+        escreval("Estratégia sugerida: Competir pelo preço.")
+    fimse
+
+    escreval("=== Fim da Análise ===")
+fimalgoritmo
+
