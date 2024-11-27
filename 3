@@ -1,0 +1,44 @@
+sa-lopr
+algoritmo "Desenvolvimento_Campanha_Publicitaria"
+var
+    orcamento, custoUnidade, alcanceUnidade, retornoUnidade: real
+    tipoMidia: caractere
+    qtdUnidades: inteiro
+    alcanceTotal, retornoTotal: real
+inicio
+    escreval("=== Planejamento de Campanha Publicitária ===")
+    escreval("Escolha o tipo de mídia para a campanha:")
+    escreval("T - TV (R$500 por segundo, alcance: 1000 pessoas)")
+    escreval("I - Internet (R$200 por anúncio, alcance: 3000 pessoas)")
+    escreval("P - Impresso (R$50 por página, alcance: 500 pessoas)")
+    leia(tipoMidia)
+    escreval("Informe o orçamento disponível para a campanha (em R$): ")
+    leia(orcamento)
+    escolha tipoMidia
+        caso "T", "t"
+            custoUnidade <- 500
+            alcanceUnidade <- 1000
+            retornoUnidade <- 10.0
+        caso "I", "i"
+            custoUnidade <- 200
+            alcanceUnidade <- 3000
+            retornoUnidade <- 8.0
+        caso "P", "p"
+            custoUnidade <- 50
+            alcanceUnidade <- 500
+            retornoUnidade <- 5.0
+        caso contrario
+            escreval("Tipo de mídia inválido. Encerrando programa.")
+            interrompa
+    fimescolha
+    qtdUnidades <- inteiro(orcamento / custoUnidade)
+    alcanceTotal <- qtdUnidades * alcanceUnidade
+    retornoTotal <- alcanceTotal * retornoUnidade
+    escreval("Resumo da Campanha:")
+    escreval("Tipo de Mídia Escolhida: ", tipoMidia)
+    escreval("Orçamento disponível: R$", orcamento:0:2)
+    escreval("Quantidade de unidades compradas: ", qtdUnidades)
+    escreval("Alcance estimado: ", alcanceTotal, " pessoas")
+    escreval("Retorno esperado: R$", retornoTotal:0:2)
+    escreval("Campanha planejada com sucesso!")
+fimalgoritmo
